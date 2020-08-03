@@ -1,4 +1,4 @@
-package structure.sparsearray;
+package structure.sparsearray.queue;
 
 public class ArrayLoopQue {
 

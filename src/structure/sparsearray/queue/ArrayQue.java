@@ -1,4 +1,4 @@
-package structure.sparsearray;
+package structure.sparsearray.queue;
 
 import javax.management.RuntimeErrorException;
 
