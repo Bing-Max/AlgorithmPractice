@@ -3,6 +3,64 @@ package structure.sparsearray.linkedlist;
 public class LinkListTest {
 	
 	public static void main(String[] args) {
+		
+//		test2();
+		testJosephu();
+	}
+	public static void testJosephu() {
+		CircleSingleLinkedList list = new CircleSingleLinkedList();
+//		list.add(7);
+//		list.iter();
+		int nums = 5;
+		int startNum = 2;
+		int k = 3;
+		
+		System.out.printf("game start!!! total = %d, startIndex =  %d, k = %d \n", nums, startNum, k);
+		
+		list.start(nums, startNum, k);
+	}
+	
+	public static void test2() {
+		DoubleLinkedList list = new DoubleLinkedList();
+		
+		DoubleLinkNode node1 = new DoubleLinkNode(1, "宋江", "及时雨");
+		DoubleLinkNode node2 = new DoubleLinkNode(2, "卢俊义", "玉麒麟");
+		DoubleLinkNode node3 = new DoubleLinkNode(3, "吴用", "智多星");
+		DoubleLinkNode node4 = new DoubleLinkNode(4, "公孙胜", "入云龙");
+		
+		list.add(node3);
+		list.add(node1);
+		list.add(node4);
+		list.add(node4);
+		list.add(node2);
+		
+//		list.addBySort(node3);
+//		list.addBySort(node1);
+//		list.addBySort(node4);
+//		list.addBySort(node4);
+//		list.addBySort(node2);
+		
+		list.iter();
+		
+		System.out.println("update ~~");
+		list.update(new DoubleLinkNode(4, "林冲", "豹子头"));
+		list.iter();
+		
+		System.out.println("del~~~");
+		list.del(2);
+		list.iter();
+		
+		System.out.println("del~~~");
+		list.del(1);
+		list.iter();
+		
+		System.out.println("del~~~");
+		list.del(3);
+		list.iter();
+		
+	}
+	
+	public static void test1() {
 		SingleLinkedList list = new SingleLinkedList();
 		
 		LinkNode node1 = new LinkNode(1, "宋江", "及时雨");
@@ -60,7 +118,6 @@ public class LinkListTest {
 		
 		System.out.println("合并两有序链表");
 		list.mergeByOrder(list2).iter();
-		
 	}
 
 }
