@@ -1,4 +1,4 @@
-package structure.sparsearray.stack;
+package structure.stack;
 
 import java.util.Scanner;
 

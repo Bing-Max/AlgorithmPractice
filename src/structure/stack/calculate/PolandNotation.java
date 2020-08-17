@@ -1,4 +1,4 @@
-package structure.sparsearray.stack.calculate;
+package structure.stack.calculate;
 
 import java.util.ArrayList;
 import java.util.List;

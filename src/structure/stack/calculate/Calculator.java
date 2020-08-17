@@ -1,6 +1,6 @@
-package structure.sparsearray.stack.calculate;
+package structure.stack.calculate;
 
-import structure.sparsearray.stack.ArrayStack;
+import structure.stack.ArrayStack;
 
 public class Calculator {
 	

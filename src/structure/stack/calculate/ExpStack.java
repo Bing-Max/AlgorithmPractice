@@ -1,21 +1,21 @@
-package structure.sparsearray.stack.calculate;
+package structure.stack.calculate;
 
-public class OperatorStack {
+public class ExpStack {
 	
 	private int maxSize;
-	private int[] vals;
+	private String[] vals;
 	
 	private int top;
 	
-	public OperatorStack() {
+	public ExpStack() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OperatorStack(int maxSize) {
+	public ExpStack(int maxSize) {
 		// TODO Auto-generated constructor stub
 		super();
 		this.maxSize = maxSize;
-		this.vals = new int[maxSize]; 
+		this.vals = new String[maxSize]; 
 		this.top = -1;
 	}
 	
@@ -27,7 +27,7 @@ public class OperatorStack {
 		return this.top == maxSize - 1;
 	}
 	
-	public void push(int val) {
+	public void push(String val) {
 		if(!isFull()) {
 			this.vals[++top] = val;
 		}else {
@@ -35,7 +35,7 @@ public class OperatorStack {
 		}
 	}
 	
-	public int pop() {
+	public String pop() {
 		if(isEmpty()) {
 			throw new RuntimeException("stack is empty!");
 		}
@@ -43,7 +43,7 @@ public class OperatorStack {
 		return this.vals[top--];
 	}
 	
-	public int peak() {
+	public String peak() {
 		if(isEmpty()) {
 			throw new RuntimeException("stack is empty!");
 		}
@@ -58,7 +58,7 @@ public class OperatorStack {
 		}
 		
 		for(int i = top ; i >= 0; i--) {
-			System.out.printf("index[%d]: %d\n", i, vals[i]);
+			System.out.printf("index[%d]: %s\n", i, vals[i]);
 		}
 	}
 	

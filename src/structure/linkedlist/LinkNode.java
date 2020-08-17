@@ -1,4 +1,4 @@
-package structure.sparsearray.linkedlist;
+package structure.linkedlist;
 
 public class LinkNode {
 	public int id;

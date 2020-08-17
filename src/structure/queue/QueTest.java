@@ -1,4 +1,4 @@
-package structure.sparsearray.queue;
+package structure.queue;
 
 import java.util.Scanner;
 
