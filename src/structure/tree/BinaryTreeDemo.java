@@ -21,14 +21,24 @@ public class BinaryTreeDemo {
 		BinaryTree tree = new BinaryTree();
 		tree.setRoot(root);
 		
-		System.out.println("前序遍历");
+		System.out.println("前序遍  历");
+//		tree.preOrder();
+		
+//		System.out.println("中序遍历");
+//		tree.infixOrder();
+//		
+//		System.out.println("后序遍历");
+//		tree.postOrder();
+//		
+//		System.out.println("前序查找");
+//		System.out.println(tree.preOrderSearch(5));
+//		System.out.println("中序查找");
+//		System.out.println(tree.infixOrderSearch(5));
+//		System.out.println("后序查找");
+//		System.out.println(tree.postOrderSearch(5));
+		
+		tree.delNode(2);
 		tree.preOrder();
-		
-		System.out.println("中序遍历");
-		tree.infixOrder();
-		
-		System.out.println("后序遍历");
-		tree.postOrder();
 	}
 
 }
@@ -66,6 +76,53 @@ class BinaryTree{
 		} else {
 			System.out.println("null tree~");
 		}
+	}
+	
+	public HeroNode preOrderSearch(int no) {
+		if(this.root == null) {
+			System.out.println("null tree");
+			System.out.println(" not find!");
+			return null;
+		}
+		
+		return this.root.preOrderSearch(no);
+	}
+	
+	public HeroNode infixOrderSearch(int no) {
+		if(this.root == null) {
+			System.out.println("null tree");
+			System.out.println(" not find!");
+			return null;
+		}
+		
+		return this.root.infixOrderSearch(no);
+	}
+	
+	public HeroNode postOrderSearch(int no) {
+		if(this.root == null) {
+			System.out.println("null tree");
+			System.out.println(" not find!");
+			return null;
+		}
+		
+		return this.root.postOrderSearch(no);
+	}
+	
+	public boolean delNode(int no) {
+		
+		if(this.root == null) {
+			System.out.println("null tree");
+			return false;
+		} else if(this.root.getId() == no) {
+			this.root = null;
+			System.out.println("删除根节点");
+			return true;
+		} else {
+			this.root.delNode(no);
+		}
+		
+		return false;
+		
 	}
 	
 }
@@ -155,5 +212,92 @@ class HeroNode{
 		}
 		
 		System.out.println(this);
+	}
+
+	public HeroNode preOrderSearch(int no) {
+		System.out.printf("%s - 前序遍历\n",this.toString());
+		// 前序遍历
+		// 先比较父节点
+		if(this.id == no) {
+			return this;
+		}
+		
+		// 空结点
+		HeroNode node = null;
+		
+		if(this.left != null) {
+			node = this.left.preOrderSearch(no);
+		}
+		
+		if(node != null) {
+			return node;
+		}
+		
+		if(this.right != null) {
+			node = this.right.preOrderSearch(no);
+		}
+		
+		return node;
+	}
+
+	public HeroNode infixOrderSearch(int no) {
+		// 中序遍历
+		// 先左子树
+		HeroNode node = null;
+		if(this.left != null && (node = this.left.infixOrderSearch(no)) != null) {
+			return node;
+		}
+		
+		System.out.printf("%s - 中序遍历\n",this.toString());
+		if(this.id == no) {
+			return this;
+		}
+		
+		if(this.right != null && (node = this.right.infixOrderSearch(no)) != null);
+		
+		
+		return node;
+	}
+	
+	
+	public HeroNode postOrderSearch(int no) {
+		// 后序遍历
+		// 最后根节点
+		HeroNode node = null;
+		if(this.left != null && (node = this.left.postOrderSearch(no)) != null) {
+			return node;
+		}
+		
+		
+		if(this.right != null && (node = this.right.postOrderSearch(no)) != null)
+			return node;
+		
+		System.out.printf("%s - 后序遍历\n",this.toString());
+		
+		return (this.id == no ?  this: null);
+		
+	}
+
+	public boolean delNode(int no) {
+		if(this.left != null && this.left.id == no) {
+			this.left = null;
+			return true;
+		}
+		
+		if(this.right != null && this.right.id == no) {
+			this.right = null;
+			return true;
+		}
+		
+		if(this.left != null && this.left.delNode(no)) {
+			return true;
+
+		} else if(this.right != null && this.right.delNode(no)) {
+			
+			return true;
+		}
+		
+		
+		return false;
 	}
 }
