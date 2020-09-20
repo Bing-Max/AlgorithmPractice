@@ -56,7 +56,7 @@ public class QuickSort {
 			arr[leftIndex] = arr[rightIndex];
 			arr[rightIndex] = temp;
 			
-			//交换结束，如果两个数都没有到达中位，继续循环
+			//交换结束，如果两个数都没有到达中位（== pivot），继续循环
 			//如果左侧指针到达中位，说明刚才的置换，将中位数置换到右侧指针了
 			//这里的主要作用是防止出现两个相同的数交换，之后进入死循环
 			if(arr[rightIndex] == pivot) {
